@@ -6,26 +6,31 @@ import java.util.Scanner;
 public class Bai3 {
     public static void main(String[] args) {
         char[] arr;
-        String terms1 = "", terms2 = "";
+        String terms1 = "", terms2 = "", temp = "";
         int index = 0;
         double result = 0;
         Scanner input = new Scanner(System.in);
         String calculation = input.nextLine();
-        arr = calculation.toCharArray();
+        for (int i = 0; i < calculation.length(); i++) {
+            if (calculation.charAt(i) != ' ') {
+                temp += calculation.charAt(i);
+            }
+        }
+        arr = temp.toCharArray();
+        System.out.println(arr);
         try {
             for (int i = 0; i < arr.length; i++) {
                 if (arr[i] == '+' || arr[i] == '-' || arr[i] == 'x' || arr[i] == ':') {
                     index = i;
+                    System.out.println("index " + index);
                 }
             }
             for (int i = 0; i < arr.length; i++) {
-                if (calculation.charAt(i) != ' ') {
-                    if (i < index) {
-                        terms1 += calculation.charAt(i);
-                    }
-                    if (i > index) {
-                        terms2 += calculation.charAt(i);
-                    }
+                if (i < index) {
+                    terms1 += arr[i];
+                }
+                if (i > index) {
+                    terms2 += arr[i];
                 }
             }
             if (arr[index] == '+') {
