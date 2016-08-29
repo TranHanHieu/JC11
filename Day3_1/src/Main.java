@@ -8,10 +8,12 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
+
         Scanner input = new Scanner(System.in);
         StudentManager studentManager = new StudentManager();
         Student student = new Student();
         List<Student> students = new ArrayList<>();
+
         System.out.println("Nhập tên : ");
         student.setName(input.nextLine());
         System.out.println("Nhập NS :");
@@ -25,8 +27,8 @@ public class Main {
         System.out.println(students);
         StudentDataAccess.writeToBinaryFile(students);
         StudentDataAccess.writeToTextFile(students);
-        System.out.println(StudentDataAccess.readFromTextFile("E:\\StudentList.txt"));
-        System.out.println(StudentDataAccess.readFromBinaryFile("E:\\BinaryFile4.txt"));
+        System.out.println(StudentDataAccess.readFromTextFile("StudentList.txt"));
+        //System.out.println(StudentDataAccess.readFromBinaryFile("BinaryFile4.txt"));
 
     }
 }

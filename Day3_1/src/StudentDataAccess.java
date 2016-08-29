@@ -7,12 +7,14 @@ import java.util.List;
  */
 public class StudentDataAccess {
     public static void writeToBinaryFile(List<Student> studentList) throws IOException {
-        ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("E:\\BinaryFile.txt"));
+
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("BinaryFile.txt"));
         objectOutputStream.writeObject(studentList);
         objectOutputStream.close();
     }
 
     public static List<Student> readFromBinaryFile(String path) throws IOException, ClassNotFoundException {
+
         ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(path));
         List<Student> student = (List<Student>) objectInputStream.readObject();
         objectInputStream.close();
@@ -20,24 +22,30 @@ public class StudentDataAccess {
     }
 
     public static void writeToTextFile(List<Student> studentList) throws IOException {
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("E:\\StudentList.txt"));
-        for (int i = 0; i < studentList.size(); i++) {
-            bufferedWriter.write(studentList.toString());
-            bufferedWriter.write("\r\n");
+
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("StudentList.txt"));) {
+            for (int i = 0; i < studentList.size(); i++) {
+                bufferedWriter.write(studentList.toString());
+            }
         }
-        bufferedWriter.close();
     }
 
     public static List<Student> readFromTextFile(String path) throws IOException {
+
         List<Student> students = new ArrayList<>();
         BufferedReader inputStream = new BufferedReader(new FileReader(path));
         String line;
+
         while ((line = inputStream.readLine()) != null) {
             String splitted[] = line.split(";");
-            Student student = new Student(splitted[0], splitted[1], splitted[2], splitted[3]);
+            String name = splitted[0];
+            String date = splitted[1];
+            String address = splitted[2];
+            String id = splitted[3];
+            Student student = new Student(name, date, address, id);
             students.add(student);
         }
+        inputStream.close();
         return students;
     }
-
 }
