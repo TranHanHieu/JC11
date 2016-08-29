@@ -10,10 +10,9 @@ public class Main {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         Scanner input = new Scanner(System.in);
         StudentManager studentManager = new StudentManager();
-        //StudentDataAccess studentDataAccess = new StudentDataAccess();
         Student student = new Student();
         List<Student> students = new ArrayList<>();
-        /*System.out.println("Nhập tên : ");
+        System.out.println("Nhập tên : ");
         student.setName(input.nextLine());
         System.out.println("Nhập NS :");
         student.setBirthDay(input.nextLine());
@@ -24,9 +23,9 @@ public class Main {
         studentManager.addStudent(student);
         students.add(student);
         System.out.println(students);
-        StudentDataAccess.writeToBinaryFile(students);*/
-        //StudentDataAccess.writeToTextFile(students);
-        //System.out.println(StudentDataAccess.readFromTextFile("E:\\StudentList.txt"));
+        StudentDataAccess.writeToBinaryFile(students);
+        StudentDataAccess.writeToTextFile(students);
+        System.out.println(StudentDataAccess.readFromTextFile("E:\\StudentList.txt"));
         System.out.println(StudentDataAccess.readFromBinaryFile("E:\\BinaryFile4.txt"));
 
     }

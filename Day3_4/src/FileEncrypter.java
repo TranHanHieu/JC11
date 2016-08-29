@@ -1,4 +1,6 @@
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -6,22 +8,25 @@ import java.util.Scanner;
  */
 public class FileEncrypter {
     public static void fileEncrypter(FileInputStream fileInputStream, FileOutputStream fileOutputStream) throws IOException {
-        byte[] bytes = String.valueOf(fileInputStream.read()).getBytes();
-        for (int i = 0; i < bytes.length; i++) {
-            System.out.println("byte 1 :" + bytes[i]);
-            bytes[i] += 5;
-            System.out.println("byte2 : " + bytes[i]);
+        int bytes ;
+        List<Byte> list = new ArrayList<>();
+        while ((bytes=fileInputStream.read()) != -1){
+            list.add((byte) bytes);
         }
-        fileOutputStream.write(bytes);
+        for (int i = 0; i < list.size(); i++) {
+            fileOutputStream.write((list.get(i)+5));
+        }
+        fileInputStream.close();
+        fileOutputStream.close();
     }
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         String pathInput = "";
         System.out.println("Input File : ");
-        pathInput = input.nextLine();
+        pathInput = input.next();
         System.out.println("Output File : ");
-        String pathOutput = input.nextLine();
+        String pathOutput = input.next();
         try {
             FileInputStream fileInputStream = new FileInputStream(pathInput);
             FileOutputStream fileOutputStream = new FileOutputStream(new File(pathOutput));

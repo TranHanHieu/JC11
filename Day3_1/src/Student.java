@@ -56,6 +56,6 @@ public class Student implements Serializable {
     }
 
     public String toString() {
-        return "\t Name : " + getName() + ";\t Ngày Sinh : " + getBirthDay() + ";\t Địa chỉ : " + getAddressStudent() + ";\t MSSV : " + getStudentId();
+        return "\t Name : " + getName() + ";\t Ngày Sinh : " + getBirthDay() + ";\t Địa chỉ : " + getAddressStudent() + ";\t MSSV : " + getStudentId()+"\t";
     }
 }

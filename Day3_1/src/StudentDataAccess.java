@@ -10,7 +10,6 @@ public class StudentDataAccess {
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("E:\\BinaryFile.txt"));
         objectOutputStream.writeObject(studentList);
         objectOutputStream.close();
-
     }
 
     public static List<Student> readFromBinaryFile(String path) throws IOException, ClassNotFoundException {
@@ -32,19 +31,11 @@ public class StudentDataAccess {
     public static List<Student> readFromTextFile(String path) throws IOException {
         List<Student> students = new ArrayList<>();
         BufferedReader inputStream = new BufferedReader(new FileReader(path));
-        String line, name = " ", date = " ", address = " ", Id = " ";
+        String line;
         while ((line = inputStream.readLine()) != null) {
-            try {
-                String splitted[] = line.split(";");
-                name = splitted[0];
-                date = splitted[1];
-                address = splitted[2];
-                Id = splitted[3];
-                Student student = new Student(name, date, address, Id);
-                students.add(student);
-            } catch (ArrayIndexOutOfBoundsException ex) {
-                System.out.println(ex.getMessage());
-            }
+            String splitted[] = line.split(";");
+            Student student = new Student(splitted[0], splitted[1], splitted[2], splitted[3]);
+            students.add(student);
         }
         return students;
     }

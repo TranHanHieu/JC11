@@ -2,6 +2,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -9,22 +11,25 @@ import java.util.Scanner;
  */
 public class FileDecrypter {
     public static void fileDecrypter(FileInputStream fileInputStream, FileOutputStream fileOutputStream) throws IOException {
-        byte[] bytes = String.valueOf(fileInputStream.read()).getBytes();
-        for (int i = 0; i < bytes.length; i++) {
-            System.out.println("byte 1 :" + bytes[i]);
-            bytes[i] -= 5;
-            System.out.println("byte2 : " + bytes[i]);
+        int bytes ;
+        List<Byte> list = new ArrayList<>();
+        byte[] bytes1 =new byte[1024];
+        while ((bytes=fileInputStream.read()) != -1){
+            list.add((byte) bytes);
         }
-        fileOutputStream.write(bytes);
+        for (int i = 0; i < list.size(); i++) {
+            fileOutputStream.write((list.get(i)-5));
+        }
+        fileOutputStream.close();
     }
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         String pathInput = "";
         System.out.println("Input File : ");
-        pathInput = input.nextLine();
+        pathInput = input.next();
         System.out.println("Output File : ");
-        String pathOutput = input.nextLine();
+        String pathOutput = input.next();
         try {
             FileInputStream fileInputStream = new FileInputStream(pathInput);
             FileOutputStream fileOutputStream = new FileOutputStream(new File(pathOutput));
