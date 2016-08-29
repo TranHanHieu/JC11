@@ -11,7 +11,7 @@ public class FileSplitter {
         long length = file.length();
         long lengthFile = length / numberFlie;
         for (int i = 0; i < numberFlie; i++) {
-            BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(path + "." + (i + 1) + ".txt"));
+            BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(path + "." + (i + 1)));
             for (int j = 0; j < lengthFile; j++) {
                 bufferedOutputStream.write(bufferedInputStream.read());
             }
