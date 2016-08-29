@@ -8,8 +8,10 @@ import java.util.Scanner;
  */
 public class FileEncrypter {
     public static void fileEncrypter(FileInputStream fileInputStream, FileOutputStream fileOutputStream) throws IOException {
+
         int bytes ;
         List<Byte> list = new ArrayList<>();
+
         while ((bytes=fileInputStream.read()) != -1){
             list.add((byte) bytes);
         }
@@ -21,12 +23,14 @@ public class FileEncrypter {
     }
 
     public static void main(String[] args) {
+
         Scanner input = new Scanner(System.in);
         String pathInput = "";
         System.out.println("Input File : ");
         pathInput = input.next();
         System.out.println("Output File : ");
         String pathOutput = input.next();
+
         try {
             FileInputStream fileInputStream = new FileInputStream(pathInput);
             FileOutputStream fileOutputStream = new FileOutputStream(new File(pathOutput));

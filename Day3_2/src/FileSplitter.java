@@ -5,6 +5,7 @@ import java.io.*;
  */
 public class FileSplitter {
     public static void fileSplitter(String path, int numberFlie) throws IOException {
+
         BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream(path));
         File file = new File(path);
         long length = file.length();
@@ -18,7 +19,7 @@ public class FileSplitter {
     }
 
     public static void main(String[] args) {
-        //String path = ;
+
         try {
             fileSplitter("E:\\install.log", 4);
         } catch (IOException e) {

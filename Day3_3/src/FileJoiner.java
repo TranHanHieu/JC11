@@ -5,10 +5,12 @@ import java.io.*;
  */
 public class FileJoiner {
     public static void fileJoiner(String path) throws IOException {
+
         BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream("FileJoiner.txt"));
         String[] splits = path.split(",");
         String nameFile = "";
         int a;
+
         for (int i = 0; i < splits.length; i++) {
             nameFile = splits[i];
             BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream(nameFile));
@@ -21,6 +23,7 @@ public class FileJoiner {
     }
 
     public static void main(String[] args) {
+
         try {
             fileJoiner("E:\\install.log.1.txt,E:\\install.log.2.txt,E:\\install.log.3.txt,E:\\install.log.4.txt");
         } catch (IOException e) {

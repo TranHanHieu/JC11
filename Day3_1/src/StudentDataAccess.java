@@ -33,19 +33,18 @@ public class StudentDataAccess {
     public static List<Student> readFromTextFile(String path) throws IOException {
 
         List<Student> students = new ArrayList<>();
-        BufferedReader inputStream = new BufferedReader(new FileReader(path));
         String line;
-
-        while ((line = inputStream.readLine()) != null) {
-            String splitted[] = line.split(";");
-            String name = splitted[0];
-            String date = splitted[1];
-            String address = splitted[2];
-            String id = splitted[3];
-            Student student = new Student(name, date, address, id);
-            students.add(student);
+        try (BufferedReader inputStream = new BufferedReader(new FileReader(path));){
+            while ((line = inputStream.readLine()) != null) {
+                String splitted[] = line.split(";");
+                String name = splitted[0];
+                String date = splitted[1];
+                String address = splitted[2];
+                String id = splitted[3];
+                Student student = new Student(name, date, address, id);
+                students.add(student);
+            }
         }
-        inputStream.close();
         return students;
     }
 }
