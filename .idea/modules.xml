@@ -10,8 +10,11 @@
       <module fileurl="file://$PROJECT_DIR$/Day3_3/Day3_3.iml" filepath="$PROJECT_DIR$/Day3_3/Day3_3.iml" />
       <module fileurl="file://$PROJECT_DIR$/Day3_4/Day3_4.iml" filepath="$PROJECT_DIR$/Day3_4/Day3_4.iml" />
       <module fileurl="file://$PROJECT_DIR$/Day3_5/Day3_5.iml" filepath="$PROJECT_DIR$/Day3_5/Day3_5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Day5/Day5.iml" filepath="$PROJECT_DIR$/Day5/Day5.iml" />
       <module fileurl="file://$PROJECT_DIR$/IO/IO.iml" filepath="$PROJECT_DIR$/IO/IO.iml" />
       <module fileurl="file://$PROJECT_DIR$/JC11.iml" filepath="$PROJECT_DIR$/JC11.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NetWorking/NetWorking.iml" filepath="$PROJECT_DIR$/NetWorking/NetWorking.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ThreadExample/ThreadExample.iml" filepath="$PROJECT_DIR$/ThreadExample/ThreadExample.iml" />
     </modules>
   </component>
 </project>
